@@ -1,0 +1,487 @@
+// VERILOG CODE AND TESTBENCH FOR OR GATE //
+
+module myorgate (
+    input A,
+    input B,
+    output Y
+);
+    assign Y = A | B;
+endmodule
+
+//////TESTBENCH/////
+
+module test_myorgate;
+    reg A;
+    reg B;
+    wire Y;
+
+    // Instantiate the OR gate
+    myorgate uut (
+        .A(A),
+        .B(B),
+        .Y(Y)
+    );
+
+    initial begin
+        // Apply test vectors
+        A = 0; B = 0; #10;
+        A = 0; B = 1; #10;
+        A = 1; B = 0; #10;
+        A = 1; B = 1; #10;
+        $finish;
+    end
+endmodule
+_____________________________________________________________________________________________________
+
+
+// VERILOG CODE AND TESTBENCH  FOR AND GATE //
+
+
+module myandgate (
+input A,
+input B,
+output Y
+);
+assign Y = A & B;
+endmodule
+////////////// TESTBENCH /////////////////
+module test_myandgate;
+reg A;
+reg B;
+wire Y;
+// Instantiate the AND gate
+myandgate uut (
+.A(A),
+.B(B),
+.Y(Y)
+);
+initial begin
+// Display the header for the waveform 
+output
+$display("A B | Y");
+$display("------");
+// Apply test vectors
+A = 0; B = 0; #10;
+$display("%b %b | %b", A, B, Y);
+A = 0; B = 1; #10;
+$display("%b %b | %b", A, B, Y);
+A = 1; B = 0; #10;
+$display("%b %b | %b", A, B, Y);
+A = 1; B = 1; #10;
+$display("%b %b | %b", A, B, Y);
+$finish;
+end
+endmodule
+
+______________________________________________________________________________________________________________
+
+//VERILOG CODE AND TESTBENCH FOR NOT GATE//
+
+module mynotgate (
+    input A,
+    output Y
+);
+    assign Y = ~A;
+endmodule
+//////////////  TESTBENCH  /////////////////
+module test_mynotgate;
+    reg A;
+    wire Y;
+
+    // Instantiate the NOT gate
+    mynotgate uut (
+        .A(A),
+        .Y(Y)
+    );
+
+    initial begin
+        // Display the header for the waveform output
+        $display("A | Y");
+        $display("----");
+
+        // Apply test vectors
+        A = 0; #10;
+        $display("%b | %b", A, Y);
+
+        A = 1; #10;
+        $display("%b | %b", A, Y);
+
+        $finish;
+    end
+endmodule
+
+___________________________________________________________________________________________________________________
+
+//VERILOG CODE AND TESTBENCH FOR NOR GATE//
+
+module mynorgate (
+    input A,
+    input B,
+    output Y
+);
+    assign Y = ~(A | B);
+endmodule
+
+
+////////////   TESTBENCH   ////////////
+
+module test_mynorgate;
+    reg A;
+    reg B;
+    wire Y;
+
+    // Instantiate the NOR gate
+    mynorgate uut (
+        .A(A),
+        .B(B),
+        .Y(Y)
+    );
+
+    initial begin
+        // Display the header for the waveform output
+        $display("A B | Y");
+        $display("----|--");
+
+        // Apply test vectors
+        A = 0; B = 0; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        A = 0; B = 1; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        A = 1; B = 0; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        A = 1; B = 1; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        $finish;
+    end
+endmodule
+
+_______________________________________________________________________________________________________________
+
+//VERILOG CODE AND TESTBENCH FOR NAND GATE //
+
+module mynandgate (
+    input A,
+    input B,
+    output Y
+);
+    assign Y = ~(A & B);
+endmodule
+
+///////////TESTBENCH/////////////
+
+module test_mynandgate;
+    reg A;
+    reg B;
+    wire Y;
+
+    // Instantiate the NAND gate
+    mynandgate uut (
+        .A(A),
+        .B(B),
+        .Y(Y)
+    );
+
+    initial begin
+        // Display the header for the waveform output
+        $display("A B | Y");
+        $display("----|--");
+
+        // Apply test vectors
+        A = 0; B = 0; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        A = 0; B = 1; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        A = 1; B = 0; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        A = 1; B = 1; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        $finish;
+    end
+endmodule
+
+______________________________________________________________________________________________
+
+// VERILOG CODE AND TESTBENCH FOR XOR GATE //
+
+module myxorgate (
+input A,
+input B,
+output Y
+);
+assign Y = A ^ B;
+endmodule
+
+////////////TESTBENCH//////////////
+
+
+module test_myxorgate;
+reg A;
+reg B;
+wire Y;
+// Instantiate the XOR gate
+myxorgate uut (
+.A(A),
+.B(B),
+.Y(Y)
+);
+initial begin
+// Display the header for the waveform 
+output
+$display("A B | Y");
+$display("------");
+// Apply test vectors
+A = 0; B = 0; #10;
+$display("%b %b | %b", A, B, Y);
+A = 0; B = 1; #10;
+$display("%b %b | %b", A, B, Y);
+A = 1; B = 0; #10;
+$display("%b %b | %b", A, B, Y);
+A = 1; B = 1; #10;
+$display("%b %b | %b", A, B, Y);
+$finish;
+end
+endmodule
+
+_________________________________________________________________________________________________________________
+
+// VERILOG CODE AND TESTBENCH FOR XNOR GATE //
+
+module myxnorgate (
+    input A,
+    input B,
+    output Y
+);
+    assign Y = ~(A ^ B);
+endmodule
+
+//////////TESTBENCH////////////
+
+module test_myxnorgate;
+    reg A;
+    reg B;
+    wire Y;
+
+    // Instantiate the XNOR gate
+    myxnorgate uut (
+        .A(A),
+        .B(B),
+        .Y(Y)
+    );
+
+    initial begin
+        // Display the header for the waveform output
+        $display("A B | Y");
+        $display("----|--");
+
+        // Apply test vectors
+        A = 0; B = 0; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        A = 0; B = 1; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        A = 1; B = 0; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        A = 1; B = 1; #10;
+        $display("%b %b | %b", A, B, Y);
+
+        $finish;
+    end
+endmodule
+
+_____________________________________________________________________________________________________
+
+// VERILOG CODE AND TESTBENCH FOR HALF ADDER //
+
+
+module myhalfadder (
+input A,
+input B,
+output Sum,
+output Carry
+);
+assign Sum = A ^ B;
+assign Carry = A & B;
+endmodule
+
+
+/////////TESTBENCH///////////
+
+
+module test_myhalfadder;
+reg A;
+reg B;
+wire Sum;
+wire Carry;
+// Instantiate the half adder
+myhalfadder uut (
+.A(A),
+.B(B),
+.Sum(Sum),
+.Carry(Carry)
+);
+initial begin
+// Display the header for the waveform 
+output
+$display("A B | Sum Carry");
+$display("----|----------");
+// Apply test vectors
+A = 0; B = 0; #10;
+$display("%b %b | %b %b", A, B, Sum, 
+Carry);
+A = 0; B = 1; #10;
+$display("%b %b | %b %b", A, B, Sum, 
+Carry);
+A = 1; B = 0; #10;
+$display("%b %b | %b %b", A, B, Sum, 
+Carry);
+A = 1; B = 1; #10;
+$display("%b %b | %b %b", A, B, Sum, 
+Carry);
+$finish;
+end
+endmodule
+
+______________________________________________________________________________________________
+
+// VERILOG CODE AND TESTBENCH FOR FULL ADDER //
+
+
+
+module myfulladder (
+input A,
+input B,
+input Cin,
+output Sum,
+output Cout
+);
+assign Sum = A ^ B ^ Cin;
+assign Cout = (A & B) | (Cin & (A ^ B));
+endmodule
+
+
+///////// --- TESTBENCH  ---  //////////
+
+
+module test_myfulladder;
+reg A;
+reg B;
+reg Cin;
+wire Sum;
+wire Cout;
+// Instantiate the full adder
+myfulladder uut (
+.A(A),
+.B(B),
+.Cin(Cin),
+.Sum(Sum),
+.Cout(Cout)
+);
+initial begin
+// Display the header for the waveform 
+output
+$display("A B Cin | Sum Cout");
+$display("--------|----------");
+// Apply test vectors
+A = 0; B = 0; Cin = 0; #10;
+$display("%b %b %b | %b %b", A, B, 
+Cin, Sum, Cout);
+A = 0; B = 0; Cin = 1; #10;
+$display("%b %b %b | %b %b", A, B, 
+Cin, Sum, Cout);
+A = 0; B = 1; Cin = 0; #10;
+$display("%b %b %b | %b %b", A, B, 
+Cin, Sum, Cout);
+A = 0; B = 1; Cin = 1; #10;
+$display("%b %b %b | %b %b", A, B, 
+Cin, Sum, Cout);
+A = 1; B = 0; Cin = 0; #10;
+$display("%b %b %b | %b %b", A, B, 
+Cin, Sum, Cout);
+A = 1; B = 0; Cin = 1; #10;
+$display("%b %b %b | %b %b", A, B, 
+Cin, Sum, Cout);
+A = 1; B = 1; Cin = 0; #10;
+$display("%b %b %b | %b %b", A, B, 
+Cin, Sum, Cout);
+A = 1; B = 1; Cin = 1; #10;
+$display("%b %b %b | %b %b", A, B, 
+Cin, Sum, Cout);
+$finish;
+end
+endmodule
+
+____________________________________________________________________________________________
+
+// VERILOG CODE AND TESTBENCH FOR 2 TO 1 MULTIPLEXER //
+
+
+
+module my2to1mux (
+    input A,
+    input B,
+    input Sel,
+    output Y
+);
+    assign Y = (Sel) ? B : A;
+endmodule
+
+//////////////////  TESTBENCH  ///////////////////////
+
+module test_my2to1mux;
+    reg A;
+    reg B;
+    reg Sel;
+    wire Y;
+
+    // Instantiate the 2-to-1 multiplexer
+    my2to1mux uut (
+        .A(A),
+        .B(B),
+        .Sel(Sel),
+        .Y(Y)
+    );
+
+    initial begin
+        // Display the header for the waveform output
+        $display("A B Sel | Y");
+        $display("--------|--");
+
+        // Apply test vectors
+        A = 0; B = 0; Sel = 0; #10;
+        $display("%b %b  %b  | %b", A, B, Sel, Y);
+
+        A = 0; B = 0; Sel = 1; #10;
+        $display("%b %b  %b  | %b", A, B, Sel, Y);
+
+        A = 0; B = 1; Sel = 0; #10;
+        $display("%b %b  %b  | %b", A, B, Sel, Y);
+
+        A = 0; B = 1; Sel = 1; #10;
+        $display("%b %b  %b  | %b", A, B, Sel, Y);
+
+        A = 1; B = 0; Sel = 0; #10;
+        $display("%b %b  %b  | %b", A, B, Sel, Y);
+
+        A = 1; B = 0; Sel = 1; #10;
+        $display("%b %b  %b  | %b", A, B, Sel, Y);
+
+        A = 1; B = 1; Sel = 0; #10;
+        $display("%b %b  %b  | %b", A, B, Sel, Y);
+
+        A = 1; B = 1; Sel = 1; #10;
+        $display("%b %b  %b  | %b", A, B, Sel, Y);
+
+        $finish;
+    end
+endmodule
+
